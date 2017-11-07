@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
 
-import { addNavigationHelpers  } from 'react-navigation';
+import { addNavigationHelpers  } from '../../../react-navigation/lib/react-navigation.web.js';
 
 import { connect } from 'react-redux';
 

@@ -4,7 +4,7 @@ import { Bar } from './bar';
 
 import {
   addNavigationHelpers
-} from 'react-navigation';
+} from '../../../react-navigation/lib/react-navigation.web.js';
 
 const Scene = (props) => {
   console.log(props.scene.routeName);

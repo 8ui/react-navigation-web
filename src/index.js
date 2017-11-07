@@ -3,8 +3,9 @@ import React from 'react';
 import {
   StackRouter,
   TabRouter,
-  createNavigator
-} from 'react-navigation';
+  createNavigator,
+  addNavigationHelpers
+} from '../../react-navigation/lib/react-navigation.web.js';
 
 import {
   defaultConfig as StackDefaultConfig
@@ -22,6 +23,8 @@ import {
 import Drawer from './DrawerNavigator';
 import Tab from './TabNavigator';
 import Stack from './StackNavigator';
+
+export { addNavigationHelpers };
 
 export const StackNavigator = (RouteConfigs, StackNavigatorConfig) => {
   const Config = {
@@ -48,7 +51,9 @@ export const StackNavigator = (RouteConfigs, StackNavigatorConfig) => {
 
   const Routes = StackRouter(RouteConfigs, stackRouterConfig);
 
-  return createNavigator(Routes, StackNavigatorConfig)((props) => <Stack {...props} config={Config} />);
+  return createNavigator(Routes, StackNavigatorConfig)((props) => {
+    return <Stack {...props} config={Config} />;
+  });
 };
 
 export const DrawerNavigator = (RouteConfigs, DrawerNavigatorConfig) => {
