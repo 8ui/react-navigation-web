@@ -4,7 +4,8 @@ import {
   StackRouter,
   TabRouter,
   createNavigator,
-  addNavigationHelpers
+  addNavigationHelpers,
+  NavigationActions
 } from '../../react-navigation/lib/react-navigation.web.js';
 
 import {
@@ -25,6 +26,7 @@ import Tab from './TabNavigator';
 import Stack from './StackNavigator';
 
 export { addNavigationHelpers };
+export { NavigationActions };
 
 export const StackNavigator = (RouteConfigs, StackNavigatorConfig) => {
   const Config = {
@@ -107,6 +109,7 @@ export const TabNavigator = (RouteConfigs, TabNavigatorConfig) => {
   };
 
   const Routes = StackRouter(RouteConfigs, tabRouterConfig);
-
-  return createNavigator(Routes)((props) => <Tab {...props} config={Config} />);
+  return createNavigator(Routes, TabNavigatorConfig)((props) => {
+    return <Tab {...props} config={Config} routes={RouteConfigs} />
+  });
 };

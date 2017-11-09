@@ -11,8 +11,8 @@ export const Bar = (props) => {
     }
   };
 
-  const tabBar = props.router.getScreenConfig(route, 'tabBar');
-  const header = props.router.getScreenConfig(route, 'header');
+  const tabBar = props.router.getScreenOptions(route, 'tabBar');
+  const header = props.router.getScreenOptions(route, 'header');
 
   const options = {
     ...defaultOptions,
@@ -56,6 +56,8 @@ export const Bar = (props) => {
       backgroundColor: options.inactiveBackgroundColor
     }}>{inner}</div>
   }
+
+  return null;
 }
 
 
